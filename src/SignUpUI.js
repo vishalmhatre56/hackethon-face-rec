@@ -24,7 +24,10 @@ class SignUpUI extends Component {
             collapseID: "",
             imageData:"",
             error:false,
-            success:false
+            success:false,
+            isCaptured : "false",
+            capturedImg :""
+ 
         };
         // this.handleLogin = this.handleLogin.bind(this);
         this.textChange = this.textChange.bind(this);
@@ -55,8 +58,16 @@ class SignUpUI extends Component {
         const imageSrc = this.webcam.getScreenshot();
         this.setState({imageData:imageSrc})
         console.log(imageSrc);
-
+       
+        this.setState({isCaptured:"true"});
+        this.setState({capturedImg :imageSrc})
     };
+
+    resetImage = () =>
+    {
+        this.setState({isCaptured:"false"});
+        this.setState({capturedImg :""})
+    }
     handleSignUp() {
         console.log("this.state", this.state);
         CallApi('users/register', 'POST', { first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: this.state.password }).then((result) => {
@@ -111,23 +122,28 @@ class SignUpUI extends Component {
                 <MDBInput id = "last_name" label="Last name" icon="user" />
                 <MDBInput id = "email" label="Your email" icon="envelope" />
                 <MDBInput id = "password" label="Your password" icon="lock" type="password" />
-                <center> <Webcam
+                <center>
+                    {
+                        this.state.isCaptured ==="false" ?
+                    
+                     <Webcam
                     audio={false}
                     height={250}
                     ref={this.setRef}
                     screenshotFormat="image/jpeg"
                     width={250}
-                    videoConstraints={videoConstraints}
-                />
-
+                    videoConstraints={videoConstraints} 
+                />:<img src={this.state.capturedImg}/> }
+                <img src=""/>
                     <a size="lg" floating  onClick={this.capture}>
                         <MDBIcon icon="camera" size="2x" /></a>&nbsp;&nbsp; &nbsp;&nbsp;
-                    <a size="lg" floating >
+                    <a size="lg" floating onClick={this.resetImage}>
                         <MDBIcon icon="redo" size="2x" /></a>
                 </center>
                 <div className="text-center mt-4 black-text">
-                    <MDBBtn  onClick={this.onSubmitData} color="indigo">Sign Up</MDBBtn>
-                    <MDBBtn  onClick={()=>this.props.togalePage("signIn")} color="light-blue" size="sm">Sign In</MDBBtn>
+                <button onClick={this.onSubmitData} type="button" class="btn btn-indigo btn-block" style={{backgroundColor: "#3f51b5 !important"}}>Sign Up</button>
+                    <a onClick={()=>this.props.togalePage("signIn")} style={{float:"right", textDecoration: "underline",color:"#82b1ff"}}>Sign In</a>
+                   <br></br>
                     <hr className="hr-light" />
                     <div className="text-center d-flex justify-content-center white-label">
                         <a href="#!" className="p-2 m-2">
