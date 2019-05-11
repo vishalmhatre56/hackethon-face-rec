@@ -118,14 +118,14 @@ class SignUpUI extends Component {
                     videoConstraints={videoConstraints}
                 />
 
-                    <MDBBtn tag="a" size="lg" floating gradient="blue" onClick={this.capture}>
-                        <MDBIcon icon="camera" size="2x" /></MDBBtn>
-                    <MDBBtn tag="a" size="lg" floating gradient="blue">
-                        <MDBIcon icon="redo" size="2x" /></MDBBtn>
+                    <a size="lg" floating  onClick={this.capture}>
+                        <MDBIcon icon="camera" size="2x" /></a>&nbsp;&nbsp; &nbsp;&nbsp;
+                    <a size="lg" floating >
+                        <MDBIcon icon="redo" size="2x" /></a>
                 </center>
                 <div className="text-center mt-4 black-text">
                     <MDBBtn  onClick={this.onSubmitData} color="indigo">Sign Up</MDBBtn>
-                    <MDBBtn  onClick={()=>this.props.togalePage("signIn")} color="indigo">Sign In</MDBBtn>
+                    <MDBBtn  onClick={()=>this.props.togalePage("signIn")} color="light-blue" size="sm">Sign In</MDBBtn>
                     <hr className="hr-light" />
                     <div className="text-center d-flex justify-content-center white-label">
                         <a href="#!" className="p-2 m-2">

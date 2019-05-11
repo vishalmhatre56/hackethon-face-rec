@@ -77,6 +77,8 @@ togalePage=(data)=>{
       //console.log("result",result);
     })
   };
+
+  
   render() {
     const videoConstraints = {
       width: 1280,
