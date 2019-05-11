@@ -32,6 +32,7 @@ class App extends Component {
 
   }
 
+
   toggleCollapse = collapseID => () =>
 this.setState(prevState => ({
 collapseID: prevState.collapseID !== collapseID ? collapseID : ""
@@ -40,6 +41,7 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
   setRef = webcam => {
     this.webcam = webcam;
   };
+
   textChange(event) {
     if (event.target.name === "email") {
       this.setState({ email: event.target.value });
@@ -72,7 +74,7 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     })
   };
   render() {
-    const videoConstraints = {
+     const videoConstraints = {
       width: 1280,
       height: 720,
       facingMode: "user"
