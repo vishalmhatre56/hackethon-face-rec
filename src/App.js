@@ -20,7 +20,9 @@ class App extends Component {
     this.textChange = this.textChange.bind(this);
 
   }
-
+  setRef = webcam => {
+    this.webcam = webcam;
+  };
   textChange(event) {
     if (event.target.name === "email") {
       this.setState({ email: event.target.value });
@@ -29,10 +31,15 @@ class App extends Component {
       this.setState({ password: event.target.value });
     }
   }
-  onUserMedia(data){
-console.log(data);
+  onUserMedia(data) {
+    console.log(data);
 
   }
+  capture = () => {
+    const imageSrc = this.webcam.getScreenshot();
+    console.log(imageSrc);
+    
+  };
   handleLogin() {
     console.log("this.state", this.state);
     CallApi('users/login', 'POST', { email: this.state.email, password: this.state.password }).then((result) => {
@@ -48,6 +55,11 @@ console.log(data);
     })
   };
   render() {
+    const videoConstraints = {
+      width: 1280,
+      height: 720,
+      facingMode: "user"
+    };
     return (
       <div>
         <Container>
@@ -76,7 +88,17 @@ console.log(data);
 
 
           </Row>
-          <Webcam onUserMedia={this.onUserMedia}/>
+          <div>
+        <Webcam
+          audio={false}
+          height={350}
+          ref={this.setRef}
+          screenshotFormat="image/jpeg"
+          width={350}
+          videoConstraints={videoConstraints}
+        />
+        <button onClick={this.capture}>Capture photo</button>
+      </div>
         </Container>
 
 
