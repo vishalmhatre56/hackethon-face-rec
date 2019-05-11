@@ -89,8 +89,11 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
        
         </center>
                       <div className="text-center mt-4 black-text">
-                        <MDBBtn  onClick={this.handleLogin} color="indigo">Sign In</MDBBtn>
-                        <MDBBtn onClick={()=>this.props.togalePage("signUp")} color="light-blue" size="sm">Sign Up</MDBBtn>
+                      <button onClick={this.handleLogin}  type="button" class="btn btn-indigo btn-block" style={{backgroundColor: "#3f51b5 !important"}}>Sign In</button>
+                      <a onClick={()=>this.props.togalePage("signUp")} style={{float:"right", textDecoration: "underline",color:"#82b1ff"}}>Sign Up</a>
+                     <br></br>
+
+                        
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
                           <a href="#!" className="p-2 m-2">
