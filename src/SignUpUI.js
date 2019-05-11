@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
 import Webcam from "react-webcam";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
-    MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow,
-    MDBCol, MDBIcon,
-    MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBInput, MDBFormInline
-} from "mdbreact";
-import "./index.css";
+  MDBIcon,
+  MDBBtn, MDBCardBody, MDBInput
+  } from "mdbreact";
+  import "./index.css";
 
 import {
-    CallApi
+    CallApi,CallApi2
 } from './services/CallApi';
 
 class SignUpUI extends Component {
@@ -72,10 +69,10 @@ class SignUpUI extends Component {
     };
     onSubmitData=()=>{
         alert(1)
-        let first_name=document.getElementById("first_name")
-        let last_name=document.getElementById("last_name")
-        let email=document.getElementById("email")
-        let password=document.getElementById("password")
+        let first_name=document.getElementById("first_name").value
+        let last_name=document.getElementById("last_name").value
+        let email=document.getElementById("email").value
+        let password=document.getElementById("password").value
          
         CallApi('users/register', 'POST', { first_name:first_name, last_name: last_name, email: email, password: password,imageData:this.state.imageData }).then((result) => {
             if (result.success) {
@@ -96,9 +93,6 @@ class SignUpUI extends Component {
             height: 720,
             facingMode: "user"
         };
-        const overlay = (
-            <div id="sidenav-overlay" style={{ backgroundColor: "transparent" }} onClick={this.toggleCollapse("navbarCollapse")} />
-        );
         return (
             <MDBCardBody className="z-depth-2 white-text">
                 <h3 className="text-center">
