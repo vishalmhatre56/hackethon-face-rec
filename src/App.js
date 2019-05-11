@@ -9,8 +9,8 @@ import {
   MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow,
   MDBCol, MDBIcon,
   MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBInput, MDBFormInline
-  } from "mdbreact";
-  import "./index.css";
+} from "mdbreact";
+import "./index.css";
 import SignUpUI from '../src/SignUpUI';
 import SignInUI from '../src/SignInUI';
 import {
@@ -25,18 +25,21 @@ class App extends Component {
       email: '',
       password: '',
       message: '',
-      collapseID: ""
+      collapseID: "",
+      currentPage:"signIn"
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.textChange = this.textChange.bind(this);
 
   }
 
-
+togalePage=(data)=>{
+  this.setState({  currentPage:data})
+}
   toggleCollapse = collapseID => () =>
-this.setState(prevState => ({
-collapseID: prevState.collapseID !== collapseID ? collapseID : ""
-}));
+    this.setState(prevState => ({
+      collapseID: prevState.collapseID !== collapseID ? collapseID : ""
+    }));
 
   setRef = webcam => {
     this.webcam = webcam;
@@ -57,7 +60,7 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
   capture = () => {
     const imageSrc = this.webcam.getScreenshot();
     console.log(imageSrc);
-    
+
   };
   handleLogin() {
     console.log("this.state", this.state);
@@ -75,54 +78,54 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     })
   };
   render() {
-     const videoConstraints = {
+    const videoConstraints = {
       width: 1280,
       height: 720,
       facingMode: "user"
     };
     const overlay = (
-      <div id="sidenav-overlay"  style={{ backgroundColor: "transparent" }} onClick={this.toggleCollapse("navbarCollapse")}    />
+      <div id="sidenav-overlay" style={{ backgroundColor: "transparent" }} onClick={this.toggleCollapse("navbarCollapse")} />
     );
     return (
-      
-     
+
+
       <div id="classicformpage">
-        
-          <div>
-            <MDBNavbar dark expand="md" fixed="top">
-              <MDBContainer>
-                <MDBNavbarBrand>
-                  <strong className="white-text">MDB</strong>
-                </MDBNavbarBrand>
-                <MDBNavbarToggler  onClick={this.toggleCollapse("navbarCollapse")}/>
-                <MDBCollapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>
-                  <MDBNavbarNav left>
-                    <MDBNavItem active>
-                    
-                    </MDBNavItem>
-                    <MDBNavItem>
-                     
-                    </MDBNavItem>
-                    <MDBNavItem>
-                      
-                    </MDBNavItem>
-                  </MDBNavbarNav>
-                  <MDBNavbarNav right>
-                    <MDBNavItem>
-                      <MDBFormInline waves>
-                        <div className="md-form my-0">
-                          <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
-                        </div>
-                      </MDBFormInline>
-                    </MDBNavItem>
-                  </MDBNavbarNav>
-                </MDBCollapse>
-              </MDBContainer>
-            </MDBNavbar>
-            {this.state.collapseID && overlay}
-          </div>
-        
-  
+
+        <div>
+          <MDBNavbar dark expand="md" fixed="top">
+            <MDBContainer>
+              <MDBNavbarBrand>
+                <strong className="white-text">MDB</strong>
+              </MDBNavbarBrand>
+              <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse")} />
+              <MDBCollapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>
+                <MDBNavbarNav left>
+                  <MDBNavItem active>
+
+                  </MDBNavItem>
+                  <MDBNavItem>
+
+                  </MDBNavItem>
+                  <MDBNavItem>
+
+                  </MDBNavItem>
+                </MDBNavbarNav>
+                <MDBNavbarNav right>
+                  <MDBNavItem>
+                    <MDBFormInline waves>
+                      <div className="md-form my-0">
+                        <input className="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search" />
+                      </div>
+                    </MDBFormInline>
+                  </MDBNavItem>
+                </MDBNavbarNav>
+              </MDBCollapse>
+            </MDBContainer>
+          </MDBNavbar>
+          {this.state.collapseID && overlay}
+        </div>
+
+
         <MDBView>
           <MDBMask className="d-flex justify-content-center align-items-center gradient">
             <MDBContainer>
@@ -144,14 +147,16 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
                 </div>
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBCard id="classic-card" >
-                      <SignInUI/>
+                  {
+                    this.state.currentPage==="signIn" ?<SignInUI togalePage={this.togalePage}/>:<SignUpUI togalePage={this.togalePage}/>
+                  }
                   </MDBCard>
                 </MDBCol>
               </MDBRow>
             </MDBContainer>
           </MDBMask>
         </MDBView>
-  
+
         <MDBContainer>
           <MDBRow className="py-5">
             <MDBCol md="12" className="text-center">
