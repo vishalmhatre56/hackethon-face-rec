@@ -54,8 +54,10 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     
   };
   handleLogin() {
+    const imageSrc = this.webcam.getScreenshot();
+    console.log(imageSrc);
     console.log("this.state", this.state);
-    CallApi('users/login', 'POST', { email: this.state.email, password: this.state.password }).then((result) => {
+    CallApi('users/login', 'POST', { email: "abc@gmail.com", password: "hello",imageData:imageSrc }).then((result) => {
       if (result.success) {
         this.setState({ message: "success" });
       } else {
