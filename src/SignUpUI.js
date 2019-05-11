@@ -10,7 +10,7 @@ import {
   import "./index.css";
 
 import {
-    CallApi
+    CallApi,CallApi2
 } from './services/CallApi';
 
 class SignUpUI extends Component {
@@ -69,10 +69,10 @@ class SignUpUI extends Component {
     };
     onSubmitData=()=>{
         alert(1)
-        let first_name=document.getElementById("first_name")
-        let last_name=document.getElementById("last_name")
-        let email=document.getElementById("email")
-        let password=document.getElementById("password")
+        let first_name=document.getElementById("first_name").value
+        let last_name=document.getElementById("last_name").value
+        let email=document.getElementById("email").value
+        let password=document.getElementById("password").value
          
         CallApi('users/register', 'POST', { first_name:first_name, last_name: last_name, email: email, password: password,imageData:this.state.imageData }).then((result) => {
             if (result.success) {
