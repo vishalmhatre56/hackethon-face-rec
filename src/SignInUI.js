@@ -5,7 +5,7 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
   MDBIcon,
-  MDBBtn, MDBCardBody
+  MDBBtn, MDBCardBody,MDBAlert
   } from "mdbreact";
   import "./index.css";
 
@@ -21,7 +21,10 @@ class SignInUI extends Component {
       email: '',
       password: '',
       message: '',
-      collapseID: ""
+      collapseID: "",
+      error:false,
+      success:false,
+      message:""
     };
     this.handleLogin = this.handleLogin.bind(this);
     this.textChange = this.textChange.bind(this);
@@ -58,12 +61,12 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     console.log(imageSrc);
     console.log("this.state", this.state);
     CallApi('users/login', 'POST', { email: "abc@gmail.com", password: "hello",imageData:imageSrc }).then((result) => {
-      if (result.success) {
-        this.setState({ message: "success" });
-      } else {
-        this.setState({ message: "" });
+      if (result.error) {
+        this.setState({ error:true,message: result.message });
+    } else {
+        this.setState({ success:true,message:result.message });
 
-      }
+    }
     })
   };
   render() {
@@ -78,7 +81,12 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
                         <MDBIcon icon="user" /> Login:
                       </h3>
                       <hr className="hr-light" />
-                     
+                     {this.state.error?<MDBAlert color="danger" >
+        {this.state.message}
+      </MDBAlert>:""}  
+      {this.state.success?<MDBAlert color="success" >
+      {this.state.message}
+      </MDBAlert>:""} 
                      <center> <Webcam
           audio={false}
           height={250}

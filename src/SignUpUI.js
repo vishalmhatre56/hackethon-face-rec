@@ -5,7 +5,7 @@ import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
   MDBIcon,
-  MDBBtn, MDBCardBody, MDBInput
+  MDBBtn, MDBCardBody, MDBInput,MDBAlert
   } from "mdbreact";
   import "./index.css";
 
@@ -22,7 +22,9 @@ class SignUpUI extends Component {
             password: '',
             message: '',
             collapseID: "",
-            imageData:""
+            imageData:"",
+            error:false,
+            success:false
         };
         // this.handleLogin = this.handleLogin.bind(this);
         this.textChange = this.textChange.bind(this);
@@ -59,7 +61,7 @@ class SignUpUI extends Component {
         console.log("this.state", this.state);
         CallApi('users/register', 'POST', { first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: this.state.password }).then((result) => {
             if (result.success) {
-                this.setState({ message: "success" });
+                this.setState({ error: "success" });
             } else {
                 this.setState({ message: "" });
 
@@ -75,10 +77,10 @@ class SignUpUI extends Component {
         let password=document.getElementById("password").value
          
         CallApi('users/register', 'POST', { first_name:first_name, last_name: last_name, email: email, password: password,imageData:this.state.imageData }).then((result) => {
-            if (result.success) {
-                this.setState({ message: "success" });
+            if (result.error) {
+                this.setState({ error:false,message: result.message });
             } else {
-                this.setState({ message: "" });
+                this.setState({ error:true,message:result.message });
 
             }
             //this.setState();
@@ -99,6 +101,12 @@ class SignUpUI extends Component {
                     <MDBIcon icon="user" /> Register:
                       </h3>
                 <hr className="hr-light" />
+                {this.state.error?<MDBAlert color="danger" >
+                {this.state.message}
+      </MDBAlert>:""}  
+      {this.state.success?<MDBAlert color="success" >
+      {this.state.message}
+      </MDBAlert>:""} 
                 <MDBInput id = "first_name" label="First name" icon="user" />
                 <MDBInput id = "last_name" label="Last name" icon="user" />
                 <MDBInput id = "email" label="Your email" icon="envelope" />
