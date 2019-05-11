@@ -9,7 +9,7 @@ export default class HotelPage extends Component {
             <div>
             <NavBar />
             <header className="header">
-                        <h1 className="type type--heading type--heading-1"><span className="type type--subdued">Maria</span> Hotel</h1>
+                        <h1 className="type type--heading type--heading-1"><span className="type type--subdued">Hotel</span> Maria</h1>
                     </header>
             <div className="text">
                     <h2>News Related Hotel Discounts And Offers</h2>
