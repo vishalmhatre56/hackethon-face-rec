@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './home.css'
 import './heading.css'
-import './hotel.css'
+// import './hotel.css'
 import NavBar from '../../component/Navbar';
 export default class HomePage extends Component {
     render() {
@@ -14,7 +14,7 @@ export default class HomePage extends Component {
                         <h1 className="type type--heading type--heading-1"><span className="type type--subdued">Hotel</span> Maria</h1>
                     </header>
                     <div className="row">
-                        <ul className="case-study-images bg-info offset-1 col-11">
+                        <ul className="case-study-images offset-1 col-11">
                             <li>
                                 <img src="https://ivang-design.com/svg-load/hotel/room1.jpg" alt="" />
                                 <p>Suite Tanya</p>
