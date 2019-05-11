@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter as Router,
-  Link,
   Route,
   Switch } from 'react-router-dom'
 import './index.css';
@@ -9,13 +8,17 @@ import App from './App';
 import SignUp from './SignUp';
 
 import * as serviceWorker from './serviceWorker';
+import HomePage from './pages/HomePage/HomePage';
+import HotelPage from './pages/HotelPage/HotelPage';
+
 
 ReactDOM.render(<Router >
 	<Switch>
 
          <Route path = "/" exact  component = {App}/>
          <Route path = "/signup" component = {SignUp} />
-      
+         <Route path = "/home" component = {HomePage} />
+         <Route path = "/news" component = {HotelPage} />
    </Switch>
 
    </Router>, document.getElementById('root'));

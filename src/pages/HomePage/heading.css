@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  }
+  
+  *,
+  *:after,
+  *:before {
+    box-sizing: border-box;
+  }
+  
+  .header {
+    background-color: #131b27;
+    padding: 6rem 2rem 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+  
+  .type {
+    margin: 0;
+  }
+  
+  .type--subdued {
+    color: #939a9f;
+  }
+  
+  .type--heading-1 {
+    font-weight: 400;
+    font-size: 2.4rem;
+    color: white;
+    text-transform: uppercase;
+  }
+  
+  body {
+    height: 100vh;
+    background: gainsboro;
+  }
+  
+  p, h1 {
+    margin: 0;
+  }
+  
+  .card {
+    background: white;
+    width: 90%;
+    margin: 0 auto;
+    border-radius: 5px;
+  }
+  
+  .card__section {
+    padding: 1rem;
+  }
+  .card__section + .card__section {
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .heading {
+    line-height: 1;
+    margin: 0;
+    margin-right: 1rem;
+    max-width: 100%;
+  }
+  
+  .card__section--header {
+    padding: 0.5rem 1rem;
+  }
+  .card__section--header > * {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .button {
+    background: gainsboro;
+    border: none;
+    font-size: 1rem;
+    padding: 0.5rem;
+    border-radius: 4px;
+    margin: 0 0.5rem 0.5rem 0;
+  }
+  
+  .button-group {
+    margin-right: -0.5rem;
+    margin-bottom: 0;
+  }
+  
+  .button--primary {
+    background: green;
+    color: white;
+  }
+  
+  .button-group,
+  .button-group__primary,
+  .button-group__secondary {
+    display: inline-block;
+  }
