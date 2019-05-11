@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
 import Webcam from "react-webcam";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow,
-  MDBCol, MDBIcon,
-  MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBInput, MDBFormInline
+  MDBIcon,
+  MDBBtn, MDBCardBody
   } from "mdbreact";
   import "./index.css";
 
@@ -65,9 +62,6 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
         this.setState({ message: "" });
 
       }
-      //this.setState();
-
-      //console.log("result",result);
     })
   };
   render() {
@@ -76,9 +70,6 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
       height: 720,
       facingMode: "user"
     };
-    const overlay = (
-      <div id="sidenav-overlay"  style={{ backgroundColor: "transparent" }} onClick={this.toggleCollapse("navbarCollapse")}    />
-    );
     return (
                   <MDBCardBody className="z-depth-2 white-text">
                       <h3 className="text-center">

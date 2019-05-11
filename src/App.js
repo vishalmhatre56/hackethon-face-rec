@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import { Container, Row, Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom'
-import Webcam from "react-webcam";
 import '@fortawesome/fontawesome-free/css/all.min.css';
 import "bootstrap-css-only/css/bootstrap.min.css";
 import "mdbreact/dist/css/mdb.css";
 import {
-  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavLink, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow,
-  MDBCol, MDBIcon,
-  MDBBtn, MDBView, MDBContainer, MDBCard, MDBCardBody, MDBInput, MDBFormInline
+  MDBNavbar, MDBNavbarBrand, MDBNavbarNav, MDBNavItem, MDBNavbarToggler, MDBCollapse, MDBMask, MDBRow,
+  MDBCol,MDBBtn, MDBView, MDBContainer, MDBCard, MDBFormInline
   } from "mdbreact";
   import "./index.css";
-import SignUpUI from '../src/SignUpUI';
 import SignInUI from '../src/SignInUI';
 import {
   CallApi
@@ -75,11 +70,11 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     })
   };
   render() {
-     const videoConstraints = {
-      width: 1280,
-      height: 720,
-      facingMode: "user"
-    };
+    //  const videoConstraints = {
+    //   width: 1280,
+    //   height: 720,
+    //   facingMode: "user"
+    // };
     const overlay = (
       <div id="sidenav-overlay"  style={{ backgroundColor: "transparent" }} onClick={this.toggleCollapse("navbarCollapse")}    />
     );
