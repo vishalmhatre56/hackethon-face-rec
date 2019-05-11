@@ -94,11 +94,11 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
           width={250}
           videoConstraints={videoConstraints}
         />
-        
+        <button onClick={this.capture}>Capture photo</button>
        
         </center>
                       <div className="text-center mt-4 black-text">
-                        <MDBBtn color="indigo">Sign In</MDBBtn>
+                        <MDBBtn onClick={this.handleLogin} color="indigo">Sign In</MDBBtn>
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
                           <a href="#!" className="p-2 m-2">
