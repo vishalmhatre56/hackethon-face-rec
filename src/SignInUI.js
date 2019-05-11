@@ -85,12 +85,12 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
           width={250}
           videoConstraints={videoConstraints}
         />
-        <button onClick={this.capture}>Capture photo</button>
+        {/* <button onClick={this.capture}>Capture photo</button> */}
        
         </center>
                       <div className="text-center mt-4 black-text">
                         <MDBBtn onClick={this.handleLogin} color="indigo">Sign In</MDBBtn>
-                        <button  onClick={()=>this.props.togalePage("signUp")}>signUp</button>
+                        <MDBBtn onClick={()=>this.props.togalePage("signUp")} color="indigo">Sign Up</MDBBtn>
                         <hr className="hr-light" />
                         <div className="text-center d-flex justify-content-center white-label">
                           <a href="#!" className="p-2 m-2">

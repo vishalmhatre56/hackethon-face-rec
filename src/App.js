@@ -91,7 +91,7 @@ togalePage=(data)=>{
           <MDBNavbar dark expand="md" fixed="top">
             <MDBContainer>
               <MDBNavbarBrand>
-                <strong className="white-text">MDB</strong>
+                <strong className="white-text">HOTEL MARIA</strong>
               </MDBNavbarBrand>
               <MDBNavbarToggler onClick={this.toggleCollapse("navbarCollapse")} />
               <MDBCollapse id="navbarCollapse" isOpen={this.state.collapseID} navbar>

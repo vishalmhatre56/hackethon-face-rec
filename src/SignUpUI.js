@@ -119,7 +119,7 @@ class SignUpUI extends Component {
                 </center>
                 <div className="text-center mt-4 black-text">
                     <MDBBtn  onClick={this.onSubmitData} color="indigo">Sign Up</MDBBtn>
-                    <button  onClick={()=>this.props.togalePage("signIn")}>signin</button>
+                    <MDBBtn  onClick={()=>this.props.togalePage("signIn")} color="indigo">Sign In</MDBBtn>
                     <hr className="hr-light" />
                     <div className="text-center d-flex justify-content-center white-label">
                         <a href="#!" className="p-2 m-2">
