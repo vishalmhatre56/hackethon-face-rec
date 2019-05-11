@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Row, Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom'
+import Webcam from "react-webcam";
 
 import {
   CallApi
@@ -28,7 +29,10 @@ class App extends Component {
       this.setState({ password: event.target.value });
     }
   }
+  onUserMedia(data){
+console.log(data);
 
+  }
   handleLogin() {
     console.log("this.state", this.state);
     CallApi('users/login', 'POST', { email: this.state.email, password: this.state.password }).then((result) => {
@@ -72,6 +76,7 @@ class App extends Component {
 
 
           </Row>
+          <Webcam onUserMedia={this.onUserMedia}/>
         </Container>
 
 
