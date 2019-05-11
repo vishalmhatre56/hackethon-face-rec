@@ -71,7 +71,7 @@ class SignUpUI extends Component {
     handleSignUp() {
         console.log("this.state", this.state);
         CallApi('users/register', 'POST', { first_name: this.state.first_name, last_name: this.state.last_name, email: this.state.email, password: this.state.password }).then((result) => {
-            if (result.success) {
+            if (result.error) {
                 this.setState({ error: "success" });
             } else {
                 this.setState({ message: "" });
@@ -81,7 +81,7 @@ class SignUpUI extends Component {
         })
     };
     onSubmitData=()=>{
-        alert(1)
+         
         let first_name=document.getElementById("first_name").value
         let last_name=document.getElementById("last_name").value
         let email=document.getElementById("email").value
@@ -89,10 +89,10 @@ class SignUpUI extends Component {
          
         CallApi('users/register', 'POST', { first_name:first_name, last_name: last_name, email: email, password: password,imageData:this.state.imageData }).then((result) => {
             if (result.error) {
-                this.setState({ error:false,message: result.message });
+                this.setState({ error:true,message: result.message });
             } else {
-                this.setState({ error:true,message:result.message });
-
+                this.setState({ success:true,error:false,message:result.message });
+                this.props.togalePage("signIn")
             }
             //this.setState();
 
