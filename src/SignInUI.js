@@ -64,6 +64,7 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
       if (result.error) {
         this.setState({ error:true,message: result.message });
     } else {
+        this.props.history.push('/home');
         this.setState({ success:true,message:result.message });
 
     }
