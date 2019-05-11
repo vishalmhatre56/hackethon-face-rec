@@ -21,7 +21,7 @@ export function CallApi(api, method, data) {
     };
 
     if (method === "POST") {
-      settings.body = JSON.stringify(data);
+      settings.body = data;
     } else {
       var params = Object.keys(data).map(function (k) {
         return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
