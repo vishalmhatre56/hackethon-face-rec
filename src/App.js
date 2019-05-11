@@ -20,9 +20,7 @@ class App extends Component {
     this.textChange = this.textChange.bind(this);
 
   }
-  setRef = webcam => {
-    this.webcam = webcam;
-  };
+
   textChange(event) {
     if (event.target.name === "email") {
       this.setState({ email: event.target.value });
@@ -55,7 +53,7 @@ class App extends Component {
     })
   };
   render() {
-    const videoConstraints = {
+     const videoConstraints = {
       width: 1280,
       height: 720,
       facingMode: "user"
