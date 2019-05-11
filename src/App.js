@@ -43,6 +43,7 @@ class App extends Component {
     CallApi('users/login', 'POST', { email: this.state.email, password: this.state.password }).then((result) => {
       if (result.success) {
         this.setState({ message: "success" });
+        this.props.history.push('/home');
       } else {
         this.setState({ message: "" });
 

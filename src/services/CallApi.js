@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-const baseURL = 'http://localhost:3000/api/';
+const baseURL = 'http://localhost:8080/api/';
 export function CallApi(api, method, data) {
 
   var apiBaseURL = baseURL + api + '/';
