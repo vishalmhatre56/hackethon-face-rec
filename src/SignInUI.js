@@ -57,6 +57,7 @@ collapseID: prevState.collapseID !== collapseID ? collapseID : ""
     
   };
   handleLogin() {
+    this.setState({success:false,error:false})
     const imageSrc = this.webcam.getScreenshot();
     console.log(imageSrc);
     console.log("this.state", this.state);

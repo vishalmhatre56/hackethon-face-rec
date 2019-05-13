@@ -59,6 +59,7 @@ togalePage=(data)=>{
 
   };
   handleLogin() {
+    this.setState({error:false,success:false})
     console.log("this.state", this.state);
     CallApi('users/login', 'POST', { email: this.state.email, password: this.state.password }).then((result) => {
       if (result.success) {
@@ -146,7 +147,7 @@ togalePage=(data)=>{
                 <MDBCol md="6" xl="5" className="mb-4">
                   <MDBCard id="classic-card" >
                   {
-                    this.state.currentPage==="signIn" ?<SignInUI togalePage={this.togalePage}/>:<SignUpUI togalePage={this.togalePage}/>
+                    this.state.currentPage==="signIn" ?<SignInUI history={this.props.history} togalePage={this.togalePage}/>:<SignUpUI togalePage={this.togalePage}/>
                   }
                   </MDBCard>
                 </MDBCol>
